@@ -63,7 +63,7 @@ const Register = () => {
                                 </Stack>
                                 <Stack
                                     fontSize='sm'
-                                    direction={{ base: 'column', sm: 'row' }}
+                                    direction={{ base: 'column'}}
                                     align={'start'}
                                     justify={'space-between'}>
                                     <Text>Ao continuar, você concorda com o nosso
