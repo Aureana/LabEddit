@@ -10,6 +10,6 @@ export const goToPostPage = (navigate) => {
   navigate("/posts");
 };
 
-export const goToComentariosPage = (navigate) => {
-  navigate("/comentarios");
+export const goToCommentsPage = (navigate) => {
+  navigate("/comments");
 };
