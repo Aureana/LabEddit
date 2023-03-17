@@ -1,42 +1,18 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Login from "../page/loginPage/Login";
-import Register from "../page/registerPage/Register";
-import PostsPage from "../page/postPage/Posts";
-import CommentsPage from "../page/commentsPage/Comments";
+import LoginPage from "../pages/LoginPage/LoginPage";
+import SignupPage from "../pages/SignupPage/SignupPage";
+import HomePage from "../pages/HomePage/HomePage";
 
-
-function Router() {
-
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <Login />
-          }
-        />
-        <Route
-          path="/register"
-          element={
-            <Register />
-          }
-        />
-        <Route
-          path="/posts"
-          element={
-            <PostsPage />
-          }
-        />
-        <Route
-          path="/comments"
-          element={
-            <CommentsPage />
-          }
-        />
-      </Routes>
-    </BrowserRouter>
-  );
+function Router(){
+    return(
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<LoginPage/>}/>
+                <Route path="/signup" element={<SignupPage/>}/>
+                <Route path="/homepage" element={<HomePage/>}/>
+            </Routes>
+        </BrowserRouter>
+    )
 }
 
-export default Router;
+export default Router
