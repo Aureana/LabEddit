@@ -1,4 +1,4 @@
-import Router from "./router/Router";
+import Router from "./router/router";
 import { GlobalStyled } from "./GlobalStyled";
 import {GlobalContext} from "./context/GlobalContext"
 import GlobalState from "./context/GlobalState";
