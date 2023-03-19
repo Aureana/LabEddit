@@ -46,6 +46,7 @@ Crie repositórios pessoais separados para o front e para o back, pois facilita 
 ## 📫 Contato
 
 *E-mail: aureana2018@outlook.com*
+#
 ## 🔗 Links
 
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/aureana-santos-a7091b21b)
