@@ -1,6 +1,8 @@
 # LabEddit
 O projeto de rede social da Labenu
 
+LINK LABEDDIT BACK https://github.com/Aureana/LabEddit-back.git
+
 ![Labeddit](./src/assets/img-tela1.png)
 ![Labeddit](./src/assets/img-tela2.png)
 ![Labeddit](./src/assets/img-tela3.png)
