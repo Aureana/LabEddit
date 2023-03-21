@@ -18,6 +18,8 @@ function HomePage(){
   
     useEffect(()=>{
         handlePosts()
+        
+      
     },[])
 
    
@@ -40,6 +42,8 @@ function HomePage(){
             }) 
             context.setPosts(response.data)
             context.setLoading(false)
+
+           // console.log(response.data)
         } catch (error) {
             console.log(error)
             context.setLoading(false)
@@ -75,10 +79,13 @@ function HomePage(){
             <Header/>
             <StyleMain>
                 {context.modal && context.actionModal === "post" ? 
-                <>
-                <ModalPost
-                postId={context.urlPost}
-                handlePosts={handlePosts}/> 
+                <>           
+                                         
+                        <ModalPost
+                postId={context.urlPosts}
+                posts={context.posts}
+                handlePosts={handlePosts}/>                
+                
                 </>
                 : 
                 ''}
@@ -92,7 +99,9 @@ function HomePage(){
                         {context.loading ?
                         'Loading...' 
                         :
-                        context.posts && context?.posts?.map((post)=> {return(
+                        context.posts && context?.posts?.map((post)=> {
+                            
+                            return(                                                      
                             <PostCard key={post.id}
                             post={post}
                             handlePosts={handlePosts}/>
