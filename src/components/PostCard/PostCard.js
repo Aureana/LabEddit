@@ -4,7 +4,7 @@ import axios from "axios"
 import { BASE_URL } from "../../constants/BASE_URL"
 import like from "../../assets/like.svg"
 import dislike from "../../assets/dislike.svg"
-import comment from "../../assets/coment.svg"
+import comment from "../../assets/comment.svg"
 
 function PostCard (props){
     const context = useContext(GlobalContext)
@@ -13,6 +13,7 @@ function PostCard (props){
         context.setUrlPost(postId)
         context.setModal(true)
         context.setActionModal("post")
+        //console.log(postId, "QQQQ")
     }
 
     const likePost = async (postId)=>{
