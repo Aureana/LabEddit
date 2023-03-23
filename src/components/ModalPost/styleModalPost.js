@@ -28,7 +28,10 @@ export const StyleSection = styled.section`
     align-items: center;
     flex-direction: column;
     width: 90%;
-    animation: FromRight .7s .4s backwards;
+    animation: FromRight .7s .4s backwards; 
+    height: calc(100vh - 30px - 50px);
+    overflow-y: auto;
+  
 
     div:first-child{
         margin-top: 2vh;

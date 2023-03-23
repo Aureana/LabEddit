@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useContext, useEffect, useState } from "react"
 import {GlobalContext} from "../../context/GlobalContext"
 import axios from "axios"
 import { BASE_URL } from "../../constants/BASE_URL"
@@ -8,13 +8,20 @@ import comment from "../../assets/comment.svg"
 
 function PostCard (props){
     const context = useContext(GlobalContext)
+    const [comments,setComments] = useState ([])
 
     const showPost = (postId)=>{
         context.setUrlPost(postId)
         context.setModal(true)
         context.setActionModal("post")
-        //console.log(postId, "QQQQ")
+        
     }
+    
+    useEffect(() => {
+        getCommentsByPostId()
+
+    }, [])
+
 
     const likePost = async (postId)=>{
         try {
@@ -46,6 +53,30 @@ function PostCard (props){
         }
     }
 
+    const getCommentsByPostId = async () => {
+        //renderiza as publicações.
+        try {
+              const response = await axios.get(`${BASE_URL}/comments/`, {
+                headers: {
+                    Authorization: window.localStorage.getItem("token")
+                }
+            })
+            let commentByPostId = []
+            
+            for (const comment of response.data) {
+                if (comment.postId === props.post.id) {
+                    commentByPostId.push(comment)
+                }
+            }
+
+            setComments(commentByPostId)
+          
+        } catch (error) {
+            console.log(error)
+            context.setLoading(false)
+        }
+    }
+    
     return(
         <article>
         <p className="subText">Enviado por: {props.post.creator.username}</p>
@@ -58,7 +89,8 @@ function PostCard (props){
             </span> 
             <span className="subText" onClick={()=>showPost(props.post.id)}>
                 <img src={comment} alt="botãoComentários" />
-                {props.post.comments}
+                {comments.length}
+                
             </span>
         </p>
     </article>
