@@ -15,6 +15,7 @@ function Header() {
         context.setModal(false)
         context.setActionModal("")
         context.setUrlPost('')
+        context.setLoading(false)
     }
     const logOut = ()=>{
         context.setModal(false)

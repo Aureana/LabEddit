@@ -14,7 +14,7 @@ function PostCard (props){
         context.setUrlPost(postId)
         context.setModal(true)
         context.setActionModal("post")
-        
+                
     }
     
     useEffect(() => {
@@ -79,7 +79,7 @@ function PostCard (props){
     
     return(
         <article>
-        <p className="subText">Enviado por: {props.post.creator.username}</p>
+        <p className="subText">Enviado por: {props.post.creator.name}</p>
         <p>{props.post.content}</p>
         <p className="menuDoPost">
             <span className="subTextBold">
