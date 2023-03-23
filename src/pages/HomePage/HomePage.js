@@ -23,12 +23,12 @@ function HomePage() {
     }, [])
 
 
-    // useEffect(()=>{  // verifica se há o Token armazenado no localStorage.Senão, retorna para LoginPage
-    //     const token = window.localStorage.getItem("token")
-    //     if(!token){
-    //         goToLoginPage(navigate)
-    //     }
-    // },[])
+    useEffect(()=>{  // verifica se há o Token armazenado no localStorage.Senão, retorna para LoginPage
+        const token = window.localStorage.getItem("token")
+        if(!token){
+            goToLoginPage(navigate)
+        }
+    },[])
 
 
     const handlePosts = async () => {
