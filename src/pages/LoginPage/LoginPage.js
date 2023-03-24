@@ -11,6 +11,7 @@ function LoginPage(){
     const navigate = useNavigate()
     const context = useContext(GlobalContext)
     const [form, setForm] = useState({email:'',password:''})
+    const [msgErro, setMsgErro] = useState("")
 
     const onChangeForm = (event) => {
         setForm({ ...form, [event.target.name]: event.target.value })
@@ -40,6 +41,7 @@ function LoginPage(){
                 goToHomePage(navigate)
             } 
         } catch (error) {
+            setMsgErro(error.response.data)
             console.log(error)     
         }
     }
@@ -56,6 +58,8 @@ function LoginPage(){
                 <div>
                     <input value={form.email} name="email" onChange={onChangeForm} placeholder="E-mail"/>
                     <input value={form.password} name="password" onChange={onChangeForm} type="password" placeholder="Senha"/>
+                    {msgErro === "'email' não cadastrado"? <p> E-mail ou senha incorreta </p> : null}
+                    {msgErro === "'password' incorreto"? <p> E-mail ou senha incorreta </p> : null}
                 </div>
                 <div>
                     <button onClick={()=>loginUser()}>Continuar</button>

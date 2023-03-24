@@ -8,6 +8,7 @@ import { BASE_URL } from "../../constants/BASE_URL"
 
 function SignupPage (){
     const navigate = useNavigate()
+    const [msgErro, setMsgErro] = useState("")
     const [form, setForm] = useState({
         name: '',
         email: '',
@@ -33,6 +34,7 @@ function SignupPage (){
             window.localStorage.setItem("token", response.data.token)
             goToHomePage(navigate)
         } catch (error) {
+            setMsgErro(error.response.data)
             console.log(error)
         }
     }
@@ -48,7 +50,12 @@ function SignupPage (){
                 <div>
                     <input value={form.name} name="name" onChange={onChangeForm} placeholder="Apelido"/>
                     <input value={form.email} name="email" onChange={onChangeForm} placeholder="E-mail"/>
-                    <input value={form.password} name="password" onChange={onChangeForm}  type="password" placeholder="Senha"/>         
+                    <input value={form.password} name="password" onChange={onChangeForm}  type="password" placeholder="Senha"/>  
+                    {msgErro === "'email' já existe"? <p> E-mail já cadastrado! </p> : null}
+                    {msgErro === "ERROR: 'email' deve ser tipo: 'example@example.example'."? <p> Digite um email válido,'exemplo@exemplo.exemplo' </p> : null}
+                    {msgErro === "ERROR: 'Senha' deve conter pelo menos 8 caracteres com pelo menos uma letra maiúscula, pelo menos um número, e um carácter especial'."? <p> 'Senha' deve conter pelo menos 8 caracteres com pelo menos uma letra maiúscula, pelo menos um número, e um carácter especial'." </p> : null}
+                    
+                           
                 </div>
                 <div>
                     <p>Ao continuar, você concorda com o nosso <a href="#">Contrato de usuário</a> e nossa <a href="#">Politica de Privacidade</a></p>
