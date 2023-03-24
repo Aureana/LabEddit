@@ -49,6 +49,7 @@ function SignupPage (){
                 </div>
                 <div>
                     <input value={form.name} name="name" onChange={onChangeForm} placeholder="Apelido"/>
+         
                     <input value={form.email} name="email" onChange={onChangeForm} placeholder="E-mail"/>
                     <input value={form.password} name="password" onChange={onChangeForm}  type="password" placeholder="Senha"/>  
                     {msgErro === "'email' já existe"? <p> E-mail já cadastrado! </p> : null}
